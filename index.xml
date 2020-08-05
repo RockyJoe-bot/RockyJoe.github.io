@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo Theme Dream</title>
+    <link>https://RockyJoe.github.io/</link>
+    <description>Recent content on Hugo Theme Dream</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 05 Aug 2020 00:59:46 +0800</lastBuildDate>
+    
+	<atom:link href="https://RockyJoe.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://RockyJoe.github.io/posts/_index.md/</link>
+      <pubDate>Wed, 05 Aug 2020 00:59:46 +0800</pubDate>
+      
+      <guid>https://RockyJoe.github.io/posts/_index.md/</guid>
+      <description>--- title: 归档 --- 所有文章的归档。 </description>
+    </item>
+    
+    <item>
+      <title>Linux基本命令（1）</title>
+      <link>https://RockyJoe.github.io/posts/articletitle/</link>
+      <pubDate>Wed, 05 Aug 2020 00:59:46 +0800</pubDate>
+      
+      <guid>https://RockyJoe.github.io/posts/articletitle/</guid>
+      <description> 进程管理 ps 查看系统中正在执行的进程 ps-a 显示当前所有正在进行的进程
+ps-u 以用户的信息显示进程
+ps-x　显示后台运行的参数
+ps-aux｜grep mysql (查看mysql进程)
+|(管道符)
+grep 查找文件中符合条件的字符串
+ps-ef 查看父进程信息
+pstree -p 显示父Id
+pstree -u 显示用户组    结束进程 kill-9+进程Id 查找全局文件 find ~ -name  查看日志 tail -f动态读取日志
+tail -n查看最后几行日志 tail -fn 10 catalina.out｜grep by &#39;关键字&#39;动态查看最后10行的日志（使用关键字） 分页查询
+ps-ef|less 查看进程并用less分页显示
+shift + g命令到文件尾部 然后输入 ?加上你要搜索的关键字
+按 n 向上查找关键字
+shift+n 反向查找关键字
+less和more的区别：less可以随意上下浏览 而more只能向下浏览 不能向上 而且 less 在查看之前不会加载整个文件  </description>
+    </item>
+    
+  </channel>
+</rss>
