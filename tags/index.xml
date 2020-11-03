@@ -1,14 +1,178 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Hugo Theme Dream</title>
-    <link>https://RockyJoe.github.io/tags/</link>
-    <description>Recent content in Tags on Hugo Theme Dream</description>
+    <title>Tags on codex</title>
+    <link>http://RockyJoee.github.io/tags/</link>
+    <description>Recent content in Tags on codex</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
+    <language>en-us</language>
+    <copyright>© {year}</copyright>
+    <lastBuildDate>Thu, 20 Aug 2020 00:59:46 +0800</lastBuildDate>
     
-	<atom:link href="https://RockyJoe.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://RockyJoee.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>list</title>
+      <link>http://RockyJoee.github.io/tags/list/</link>
+      <pubDate>Thu, 20 Aug 2020 00:59:46 +0800</pubDate>
+      
+      <guid>http://RockyJoee.github.io/tags/list/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>redis</title>
+      <link>http://RockyJoee.github.io/tags/redis/</link>
+      <pubDate>Thu, 20 Aug 2020 00:59:46 +0800</pubDate>
+      
+      <guid>http://RockyJoee.github.io/tags/redis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>set</title>
+      <link>http://RockyJoee.github.io/tags/set/</link>
+      <pubDate>Thu, 20 Aug 2020 00:59:46 +0800</pubDate>
+      
+      <guid>http://RockyJoee.github.io/tags/set/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>string</title>
+      <link>http://RockyJoee.github.io/tags/string/</link>
+      <pubDate>Thu, 20 Aug 2020 00:59:46 +0800</pubDate>
+      
+      <guid>http://RockyJoee.github.io/tags/string/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bitmap</title>
+      <link>http://RockyJoee.github.io/tags/bitmap/</link>
+      <pubDate>Fri, 14 Aug 2020 00:59:46 +0800</pubDate>
+      
+      <guid>http://RockyJoee.github.io/tags/bitmap/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>flyway</title>
+      <link>http://RockyJoee.github.io/tags/flyway/</link>
+      <pubDate>Fri, 14 Aug 2020 00:59:46 +0800</pubDate>
+      
+      <guid>http://RockyJoee.github.io/tags/flyway/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>geospatial</title>
+      <link>http://RockyJoee.github.io/tags/geospatial/</link>
+      <pubDate>Fri, 14 Aug 2020 00:59:46 +0800</pubDate>
+      
+      <guid>http://RockyJoee.github.io/tags/geospatial/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hyperloglog</title>
+      <link>http://RockyJoee.github.io/tags/hyperloglog/</link>
+      <pubDate>Fri, 14 Aug 2020 00:59:46 +0800</pubDate>
+      
+      <guid>http://RockyJoee.github.io/tags/hyperloglog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mysql</title>
+      <link>http://RockyJoee.github.io/tags/mysql/</link>
+      <pubDate>Fri, 14 Aug 2020 00:59:46 +0800</pubDate>
+      
+      <guid>http://RockyJoee.github.io/tags/mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Json</title>
+      <link>http://RockyJoee.github.io/tags/json/</link>
+      <pubDate>Wed, 05 Aug 2020 00:59:46 +0800</pubDate>
+      
+      <guid>http://RockyJoee.github.io/tags/json/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>http://RockyJoee.github.io/tags/linux/</link>
+      <pubDate>Wed, 05 Aug 2020 00:59:46 +0800</pubDate>
+      
+      <guid>http://RockyJoee.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Postman</title>
+      <link>http://RockyJoee.github.io/tags/postman/</link>
+      <pubDate>Wed, 05 Aug 2020 00:59:46 +0800</pubDate>
+      
+      <guid>http://RockyJoee.github.io/tags/postman/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>css</title>
+      <link>http://RockyJoee.github.io/tags/css/</link>
+      <pubDate>Fri, 05 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://RockyJoee.github.io/tags/css/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>html</title>
+      <link>http://RockyJoee.github.io/tags/html/</link>
+      <pubDate>Fri, 05 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://RockyJoee.github.io/tags/html/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>markdown</title>
+      <link>http://RockyJoee.github.io/tags/markdown/</link>
+      <pubDate>Fri, 05 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://RockyJoee.github.io/tags/markdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>math</title>
+      <link>http://RockyJoee.github.io/tags/math/</link>
+      <pubDate>Fri, 05 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://RockyJoee.github.io/tags/math/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>shortcodes</title>
+      <link>http://RockyJoee.github.io/tags/shortcodes/</link>
+      <pubDate>Fri, 05 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://RockyJoee.github.io/tags/shortcodes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>themes</title>
+      <link>http://RockyJoee.github.io/tags/themes/</link>
+      <pubDate>Fri, 05 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://RockyJoee.github.io/tags/themes/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

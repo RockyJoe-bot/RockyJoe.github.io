@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>set on codex</title>
+    <link>http://RockyJoee.github.io/tags/set/</link>
+    <description>Recent content in set on codex</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© {year}</copyright>
+    <lastBuildDate>Thu, 20 Aug 2020 00:59:46 +0800</lastBuildDate>
+    
+	<atom:link href="http://RockyJoee.github.io/tags/set/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Redis的事务</title>
+      <link>http://RockyJoee.github.io/blog/redis/</link>
+      <pubDate>Thu, 20 Aug 2020 00:59:46 +0800</pubDate>
+      
+      <guid>http://RockyJoee.github.io/blog/redis/</guid>
+      <description>Redis事务： Redis单条命令是保持原子性的，但是事务不保证原子性,Redis事务没有隔离级别
+Redis事务具有一次性，顺序性，排他性，此外Redis事务中所有命令会被序列化
+ 开启事务（multi）
+命令入队
+执行事务（exec）
+分为编译时异常和运行时异常
+若是编译时异常事务中所有命令都不会执行
+若是运行时异常，执行命令时 错误命令抛异常，其他命令是可以正常执行的
+取消事务（discard）</description>
+    </item>
+    
+    <item>
+      <title>Redis的数据类型（1）</title>
+      <link>http://RockyJoee.github.io/blog/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B1/</link>
+      <pubDate>Thu, 20 Aug 2020 00:59:46 +0800</pubDate>
+      
+      <guid>http://RockyJoee.github.io/blog/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B1/</guid>
+      <description>Redis键以及数据类型：String, list, set,hash,Zset  Redis键（key）： keys * 查看所有的key
+set 设置变量
+exist key的名字 查询key是否存在
+move key db 移除当前库的key eg: move name 1 移除数据库1中的key name
+expire key 秒 给key设置生存时间，过期自动删除
+ttl key 查看还有多少秒过期 -2表示已过期 -1表示永不过期
+type key 查看key的类型
+ String: set key value 设置值
+get key 获取Key
+del key 删除Key
+append key &amp;quot;hello&amp;quot;  拼接字符串 (若不存在的Key进行append等同于set key &amp;ldquo;hello&amp;rdquo;)
+strlen key 获取字符串长度
+incrby(decrby) views 10 将储存的数字增长或减少10
+范围range： getrange 获取指定范围内的值
+setrange 设置指定范围的值
+eg:getrange key 0 -1 获取全部的值</description>
+    </item>
+    
+  </channel>
+</rss>

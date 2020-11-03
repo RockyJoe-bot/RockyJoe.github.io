@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Postman on codex</title>
+    <link>http://RockyJoee.github.io/tags/postman/</link>
+    <description>Recent content in Postman on codex</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© {year}</copyright>
+    <lastBuildDate>Wed, 05 Aug 2020 00:59:46 +0800</lastBuildDate>
+    
+	<atom:link href="http://RockyJoee.github.io/tags/postman/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>关于Postman上传Json失败</title>
+      <link>http://RockyJoee.github.io/blog/postman%E4%B8%8A%E4%BC%A0json/</link>
+      <pubDate>Wed, 05 Aug 2020 00:59:46 +0800</pubDate>
+      
+      <guid>http://RockyJoee.github.io/blog/postman%E4%B8%8A%E4%BC%A0json/</guid>
+      <description> 问题1 在项目中用Postman上传Json时，出现了报错
+于是添加一个@Responsebody后仍然报错
+在Postman中添加Content-Type为application/json
+发送成功但显示的是封装的code和Message 为未登录状态    问题2
+接下来解决未登录状态（项目实际已登录）
+经过查阅资料发现因为Postman拿不到session于是手动添加该项目中的cookie和token到Postman中
+发送成功 显示为封装后的登录成功状态  </description>
+    </item>
+    
+  </channel>
+</rss>

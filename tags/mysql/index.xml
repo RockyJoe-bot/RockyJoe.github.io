@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mysql on codex</title>
+    <link>http://RockyJoee.github.io/tags/mysql/</link>
+    <description>Recent content in Mysql on codex</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© {year}</copyright>
+    <lastBuildDate>Fri, 14 Aug 2020 00:59:46 +0800</lastBuildDate>
+    
+	<atom:link href="http://RockyJoee.github.io/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mysql语句报错</title>
+      <link>http://RockyJoee.github.io/blog/mysql%E8%AF%AD%E5%8F%A5%E6%8A%A5%E9%94%99/</link>
+      <pubDate>Fri, 14 Aug 2020 00:59:46 +0800</pubDate>
+      
+      <guid>http://RockyJoee.github.io/blog/mysql%E8%AF%AD%E5%8F%A5%E6%8A%A5%E9%94%99/</guid>
+      <description>在程序运行的时候Mysql语法报错
+check the manual that corresponds to your MySQL server version for the right syntax to use near ‘-5，5’
+看似是语法错误，首先检查Mysql分页语句语法并无错 其次检查分页代码，经过debug之后发现model的size=0 之前用flyway做数据迁移的时候字段并没有迁移过去，数据库内没有字段，所以首页读不出来关联数据库的数据模型。报的语法错误也是因为找不到相应的数据库字段，于是将字段补上就能够运行了。</description>
+    </item>
+    
+    <item>
+      <title>Mysql的版本</title>
+      <link>http://RockyJoee.github.io/blog/mysql/</link>
+      <pubDate>Wed, 05 Aug 2020 00:59:46 +0800</pubDate>
+      
+      <guid>http://RockyJoee.github.io/blog/mysql/</guid>
+      <description>在运行Mybatis generator的时候报错
+java.sql.SQLException: com.mysql.cj.jdbc.Driver 查资料后发现
+mysql 5用的驱动是com.mysql.jdbc.Driver
+mysql 6用的驱动是com.mysql.cj.jdbc.Driver</description>
+    </item>
+    
+  </channel>
+</rss>

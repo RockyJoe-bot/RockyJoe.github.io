@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bitmap on codex</title>
+    <link>http://RockyJoee.github.io/tags/bitmap/</link>
+    <description>Recent content in Bitmap on codex</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© {year}</copyright>
+    <lastBuildDate>Fri, 14 Aug 2020 00:59:46 +0800</lastBuildDate>
+    
+	<atom:link href="http://RockyJoee.github.io/tags/bitmap/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Redis的数据类型（2）</title>
+      <link>http://RockyJoee.github.io/blog/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B2/</link>
+      <pubDate>Fri, 14 Aug 2020 00:59:46 +0800</pubDate>
+      
+      <guid>http://RockyJoee.github.io/blog/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B2/</guid>
+      <description>Redis特殊数据类型：geospatial，Hyperloglog,Bitmap  GEO地理位置： 首先GEO是redis 3.2版本后推出的 之前使用geoadd命令报错因为redis版本号为3.0
+geoadd 将给定的空间元素（经度纬度名字）添加到指定的键里
+geoadd key longitude latitude member
+geopos key member 从key里返回给定元素的元素位置
+geodist
+geodist key member1 member2 [unit]
+返回两个给定位置之间的距离，如果两个位置之间的其中一个不存在,那么命令返回空值。
+指定单位的参数unit必须是以下单位的其中一个： m表示单位为米
+km表示单位为千米 mi表示单位为英里
+ft表示单位为英尺
+如果用户没有显式地指定单位参数,那么geodist默认使用米作为单位。
+georadius 给定经纬度为中心，找出某一半径内的元素 georadiusbymember 用于城市定位 eg: georadiusbymember china:city shanghai 1000km 找出Key中以上海为中心1000km内的城市
+geohash将二维经纬度转换成一维的字符串
+GEO底层实现是用zset 可以用zset命令操作geo
+zrem china:city shanghai
+zrange china:city 0 -1 等
+ Hyperloglog: pfadd添加元素
+pfcount 统计key元素基数数量
+pfmerge 合并两组Key
+ Bitmap:  位存储 应用：打卡，未打卡；登录，未登录等两种状态可用Bitmaps储存
+ setbit key offset value设置操作
+getbit key offset 读取offset设置的值（未设置返回0）</description>
+    </item>
+    
+  </channel>
+</rss>

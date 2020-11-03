@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>flyway on codex</title>
+    <link>http://RockyJoee.github.io/tags/flyway/</link>
+    <description>Recent content in flyway on codex</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© {year}</copyright>
+    <lastBuildDate>Fri, 14 Aug 2020 00:59:46 +0800</lastBuildDate>
+    
+	<atom:link href="http://RockyJoee.github.io/tags/flyway/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>数据库迁移Flyway</title>
+      <link>http://RockyJoee.github.io/blog/flyway/</link>
+      <pubDate>Fri, 14 Aug 2020 00:59:46 +0800</pubDate>
+      
+      <guid>http://RockyJoee.github.io/blog/flyway/</guid>
+      <description>初始配置
+在maven的pom.xml下加入
+ &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.flywaydb&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;flyway-core&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;4.0.3&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt;  起初用的Mysql数据库进行单独建表，后加入flyway插件进行数据库迁移，利用flyway进行数据库版本控制。在resources目录下创建db/migration后把原来的数据库脚本复制到V1__Create_user_table.sql文件下
+启动命令: mvn flyway:migrate
+出现报错 org.flywaydb.core.api.FlywayException: Found non-empty schema(s) user without schema history table! Use baseline() or set baselineOnMigrate to true to ini tialize the schema history table.
+首先认为是在配置文件中application.properties没有配置flyway.baselineOnMigrate=true
+flyway.enable=true
+加上后仍报错，再将原存在的表格都删除后执行成功</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <title>Redis的数据类型（1） | codex</title>
+
+  <meta charset="UTF-8">
+  <meta name="language" content="en">
+  <meta name="description" content="redis">
+  <meta name="keywords" content="数据库 , redis , string">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Redis的数据类型（1）" />
+  <meta name="twitter:description" content="redis"/>
+  <meta name="twitter:site" content="https://twitter.com/&lt;your handle&gt;" />
+  <meta name="twitter:creator" content="https://twitter.com/&lt;your handle&gt;" />
+  
+
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
+
+  
+  
+    
+ 
+  
+  
+  
+  
+  
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/post.min.2cb93c91050d1853bf971cc31e00122edd6e0f405aa1de3b7f8ef67ea3b5a79a.css" integrity="sha256-LLk8kQUNGFO/lxzDHgASLt1uD0Baod47f472fqO1p5o="/>
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
+  
+  
+   
+   
+    
+
+<script type="application/ld+json">
+  
+    {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/RockyJoee.github.io\/"
+      },
+      "articleSection" : "blog",
+      "name" : "Redis的数据类型（1）",
+      "headline" : "Redis的数据类型（1）",
+      "description" : "redis",
+      "inLanguage" : "en-US",
+      "author" : "",
+      "creator" : "",
+      "publisher": "",
+      "accountablePerson" : "",
+      "copyrightHolder" : "",
+      "copyrightYear" : "2020",
+      "datePublished": "2020-08-20 00:59:46 \u002b0800 CST",
+      "dateModified" : "2020-08-20 00:59:46 \u002b0800 CST",
+      "url" : "http:\/\/RockyJoee.github.io\/blog\/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B1\/",
+      "wordCount" : "298",
+      "keywords" : ["数据库", "redis", "string", "Blog"]
+    }
+  
+  </script>
+</head>
+
+<body>
+  <div class="burger__container">
+  <div class="burger" aria-controls="navigation" aria-label="Menu">
+    <div class="burger__meat burger__meat--1"></div>
+    <div class="burger__meat burger__meat--2"></div>
+    <div class="burger__meat burger__meat--3"></div>
+  </div>
+</div>
+ 
+
+  <nav class="nav" id="navigation">
+  <ul class="nav__list">
+    
+    
+      <li>
+        <a  href="/">about</a>
+      </li>
+    
+      <li>
+        <a  class="active"
+         href="/blog">blog</a>
+      </li>
+    
+  </ul>
+</nav>
+
+
+  <main>
+    
+    
+
+    <div class="flex-wrapper">
+      <div class="post__container">
+        <div class="post">
+          <header class="post__header">
+            <h1 id="post__title">Redis的数据类型（1）</h1>
+            <time datetime="2020-08-20 00:59:46 &#43;0800 CST" class="post__date">Aug 20 2020</time> 
+          </header>
+          <article class="post__content">
+              
+<h1 id="redis键以及数据类型string-list-sethashzset">Redis键以及数据类型：String, list, set,hash,Zset</h1>
+<hr>
+<h2 id="redis键key">Redis键（key）：<a class="anchor" href="#redis键key">#</a></h2>
+<p><code>keys *</code>  查看所有的key<br>
+<code>set</code>  设置变量<br>
+<code>exist key的名字</code>  查询key是否存在<br>
+<code>move key db</code>  移除当前库的key  eg: move name 1 移除数据库1中的key name<br>
+<code>expire key 秒</code>  给key设置生存时间，过期自动删除<br>
+<code>ttl key</code> 查看还有多少秒过期  -2表示已过期 -1表示永不过期<br>
+<code>type key</code> 查看key的类型</p>
+<hr>
+<h2 id="string">String:<a class="anchor" href="#string">#</a></h2>
+<p><code>set key value</code> 设置值<br>
+<code>get key</code>  获取Key<br>
+<code>del key</code>  删除Key<br>
+<code>append key &quot;hello&quot; </code>  拼接字符串 (若不存在的Key进行append等同于set key &ldquo;hello&rdquo;)<br>
+<code>strlen key</code> 获取字符串长度<br>
+<code>incrby(decrby) views 10</code> 将储存的数字增长或减少10</p>
+<h3 id="范围range">范围range：<a class="anchor" href="#范围range">#</a></h3>
+<p><code>getrange</code>  获取指定范围内的值<br>
+<code>setrange</code>  设置指定范围的值<br>
+eg:<code>getrange key 0 -1</code>  获取全部的值<br>
+<code>getrange key 0 2</code> 获取部分字符串<br>
+<code>setrange key 1 xx</code> 替换值</p>
+<h3 id="setex-set-with-expire"><code>setex</code> (set with expire)<a class="anchor" href="#setex-set-with-expire">#</a></h3>
+<p>eg:<code>setex key 60 expire</code></p>
+<h3 id="setnx-set-if-not-exist"><code>setnx </code>(set if not exist)<a class="anchor" href="#setnx-set-if-not-exist">#</a></h3>
+<p>eg:<code>setnx key &quot;redis&quot;</code> 如果不存在设置 成功返回1 如果已存在 失败返回0</p>
+<h3 id="mset同时设置一个或多个key-value键值对"><code>mset</code>同时设置一个或多个key-value键值对<a class="anchor" href="#mset同时设置一个或多个key-value键值对">#</a></h3>
+<h3 id="mget返回所有的key值"><code>mget</code>返回所有的key值<a class="anchor" href="#mget返回所有的key值">#</a></h3>
+<h3 id="msetnx当所有key都设置成功-返回1"><code>msetnx</code>当所有Key都设置成功 返回1<a class="anchor" href="#msetnx当所有key都设置成功-返回1">#</a></h3>
+<p>msetnx是原子性操作 若一个失败则整条命令失败<br>
+mset可用来缓存对象<br>
+<code>mset user:1:name jlq user:1:age 2  </code><br>
+<code>mget user:1:name user:1:age</code></p>
+<hr>
+<h2 id="list">list:<a class="anchor" href="#list">#</a></h2>
+<p><code>lpush</code>  将一个或者多个值插入到列表头部<br>
+<code>rpush</code>  将一个或多个值插入到列表尾部<br>
+<code>lrange</code>  返回列表中指定元素<br>
+eg: lrange list 0 -1 返回所有元素<br>
+<code>lpop</code> 移除并返回列表的第一个元素<br>
+<code>rpop</code> 移除并返回列表最后一个元素</p>
+<h3 id="lindex-按照索引下标获得元素-1代表最后一个0代表第一个">lindex 按照索引下标获得元素（-1代表最后一个，0代表第一个）<a class="anchor" href="#lindex-按照索引下标获得元素-1代表最后一个0代表第一个">#</a></h3>
+<p>eg:<code>lindex list 0  </code></p>
+<h3 id="llen-用于返回列表长度">llen 用于返回列表长度<a class="anchor" href="#llen-用于返回列表长度">#</a></h3>
+<h3 id="lrem-key-根据count值移除列表中的元素">lrem key 根据count值移除列表中的元素<a class="anchor" href="#lrem-key-根据count值移除列表中的元素">#</a></h3>
+<p>eg:<code>lrem list 1 &quot;list1&quot;  </code></p>
+<h3 id="ltrim-key-对一个列表进行修剪-保留指定区间的元素">ltrim key 对一个列表进行修剪 保留指定区间的元素<a class="anchor" href="#ltrim-key-对一个列表进行修剪-保留指定区间的元素">#</a></h3>
+<p><code>ltrim  list 1 2</code></p>
+<h3 id="lset-key-index-value根据下标给key设置值">lset key index value　根据下标给key设置值　　<a class="anchor" href="#lset-key-index-value根据下标给key设置值">#</a></h3>
+<p>eg：lset list 1 &ldquo;hello&rdquo;<br>
+若对空列表进行lset会报错 index超出范围也会报错</p>
+<h3 id="linsert-key-beforeafter-pivot-value">linsert key before/after pivot value<a class="anchor" href="#linsert-key-beforeafter-pivot-value">#</a></h3>
+<p>redis&gt; RPUSH mylist &ldquo;Hello&rdquo;<br>
+(integer) 1<br>
+redis&gt; RPUSH mylist &ldquo;World&rdquo;<br>
+(integer) 2<br>
+redis&gt; LINSERT mylist BEFORE &ldquo;World&rdquo; &ldquo;There&rdquo;<br>
+(integer) 3 <br>
+redis&gt; LRANGE mylist 0 -1</p>
+<ol>
+<li>&ldquo;Hello&rdquo;</li>
+<li>&ldquo;There&rdquo;</li>
+<li>&ldquo;World&rdquo;</li>
+</ol>
+<hr>
+<h2 id="set">Set:<a class="anchor" href="#set">#</a></h2>
+<p><code>sadd</code>     set中添加元素<br>
+<code>sismembers myset (abc)</code>  查看指定set的所有值(某个值是否在set中)<br>
+<code>scard</code> 获取set集合个数<br>
+<code>srem</code>  移除元素
+<code>spop</code>  随机删除一个set集合中的元素<br>
+<code>smove</code><br>
+eg:<code>smove myset myset2 aaa</code> 从一个集合移到另一个集合 <br>
+<code>sdiff key1 key2</code>  比较两个集合的差集<br>
+<code>sinter key1 key2</code> 比较两个集合的交集<br>
+<code>sunion key1 key2</code> 比较两个集合的并集</p>
+<hr>
+<h2 id="hash">Hash:<a class="anchor" href="#hash">#</a></h2>
+<p>Map集合 key-map<br>
+<code>hset/hget</code> set/get一个具体的key-value<br>
+<code>hgetall</code> get所有的key-value<br>
+<code>hmset/hmget</code> 批量set/get<br>
+eg: <code>hmset hash field1 hello field2 world</code><br>
+<code>hdel</code> 删除<br>
+<code>hlen</code> 获取字段长度<br>
+<code>hexists</code> hash中指定字段是否存在<br>
+<code>hkeys/hvals</code> 只获得所有field，value</p>
+<h3 id="hash用来储存数据user-name-age用户信息等经常变动的信息-更适合对象的储存-而string更加适合字符串的存储">hash用来储存数据user name age,用户信息等经常变动的信息 更适合对象的储存 而string更加适合字符串的存储<a class="anchor" href="#hash用来储存数据user-name-age用户信息等经常变动的信息-更适合对象的储存-而string更加适合字符串的存储">#</a></h3>
+<hr>
+<h2 id="zset有序集合">Zset(有序集合):<a class="anchor" href="#zset有序集合">#</a></h2>
+<p>127.0.0.1:6379&gt; zadd myset 1 one<br>
+(integer) 1<br>
+127.0.0.1:6379&gt; zadd myset 2 two 3 three<br>
+(integer) 2<br>
+127.0.0.1:6379&gt; zrange myset 0 -1</p>
+<ol>
+<li>&ldquo;one&rdquo;</li>
+<li>&ldquo;two&rdquo;</li>
+<li>&ldquo;three&rdquo;</li>
+</ol>
+<p><code>zrangebyscore salary -inf +inf</code> 根据工资高低排序（由低到高）<br>
+<code>zrevrange salary 0 -1</code>  由高到低进行排序
+<code>zrem</code> 移除元素<br>
+<code>zcard</code>获取有序集合中的个数</p>
+<p>zset应用：成绩表 工资表 排行榜等</p>
+
+
+              
+          </article>
+          
+
+<ul class="tags__list">
+    
+    <li class="tag__item">
+        <a class="tag__link" href="http://RockyJoee.github.io/tags/redis/">redis</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="http://RockyJoee.github.io/tags/string/">string</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="http://RockyJoee.github.io/tags/list/">list</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="http://RockyJoee.github.io/tags/set/">set</a>
+    </li></ul>
+
+ <div class="pagination">
+  
+    <a class="pagination__item" href="http://RockyJoee.github.io/blog/mysql%E8%AF%AD%E5%8F%A5%E6%8A%A5%E9%94%99/">
+        <span class="pagination__label">Previous Post</span>
+        <span class="pagination__title">Mysql语句报错</span>
+    </a>
+  
+
+  
+    <a class="pagination__item" href="http://RockyJoee.github.io/blog/redis/">
+      <span class="pagination__label">Next Post</span>
+      <span class="pagination__title" >Redis的事务</a>
+    </a>
+  
+</div>
+
+          
+          <footer class="post__footer">
+            
+
+
+<div class="social-icons">
+  
+     
+    
+      <a class="social-icons__link" title="Twitter"
+         href="https://twitter.com/%3cyour%20handle%3e"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://RockyJoee.github.io/svg/twitter.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" title="GitHub"
+         href="https://github.com/%3cyour%20handle%3e"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://RockyJoee.github.io/svg/github.svg')"></div>
+      </a>
+    
+     
+</div>
+
+            <p>© 2020</p>
+          </footer>
+          </div>
+      </div>
+      
+      <div class="toc-container">
+          
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#redis键key">Redis键（key）：</a></li>
+    <li><a href="#string">String:</a>
+      <ul>
+        <li><a href="#范围range">范围range：</a></li>
+        <li><a href="#setex-set-with-expire"><code>setex</code> (set with expire)</a></li>
+        <li><a href="#setnx-set-if-not-exist"><code>setnx </code>(set if not exist)</a></li>
+        <li><a href="#mset同时设置一个或多个key-value键值对"><code>mset</code>同时设置一个或多个key-value键值对</a></li>
+        <li><a href="#mget返回所有的key值"><code>mget</code>返回所有的key值</a></li>
+        <li><a href="#msetnx当所有key都设置成功-返回1"><code>msetnx</code>当所有Key都设置成功 返回1</a></li>
+      </ul>
+    </li>
+    <li><a href="#list">list:</a>
+      <ul>
+        <li><a href="#lindex-按照索引下标获得元素-1代表最后一个0代表第一个">lindex 按照索引下标获得元素（-1代表最后一个，0代表第一个）</a></li>
+        <li><a href="#llen-用于返回列表长度">llen 用于返回列表长度</a></li>
+        <li><a href="#lrem-key-根据count值移除列表中的元素">lrem key 根据count值移除列表中的元素</a></li>
+        <li><a href="#ltrim-key-对一个列表进行修剪-保留指定区间的元素">ltrim key 对一个列表进行修剪 保留指定区间的元素</a></li>
+        <li><a href="#lset-key-index-value根据下标给key设置值">lset key index value　根据下标给key设置值　　</a></li>
+        <li><a href="#linsert-key-beforeafter-pivot-value">linsert key before/after pivot value</a></li>
+      </ul>
+    </li>
+    <li><a href="#set">Set:</a></li>
+    <li><a href="#hash">Hash:</a>
+      <ul>
+        <li><a href="#hash用来储存数据user-name-age用户信息等经常变动的信息-更适合对象的储存-而string更加适合字符串的存储">hash用来储存数据user name age,用户信息等经常变动的信息 更适合对象的储存 而string更加适合字符串的存储</a></li>
+      </ul>
+    </li>
+    <li><a href="#zset有序集合">Zset(有序集合):</a></li>
+  </ul>
+</nav>
+      </div>
+      
+    </div>
+    
+
+  </main>
+
+   
+
+  
+  <script src="/js/index.min.49e4d8a384357d9b445b87371863419937ede9fa77737522ffb633073aebfa44.js" integrity="sha256-SeTYo4Q1fZtEW4c3GGNBmTft6fp3c3Ui/7YzBzrr&#43;kQ=" crossorigin="anonymous"></script>
+  
+  
+  <script src="https://unpkg.com/prismjs@1.20.0/components/prism-core.min.js"></script>
+
+  
+  <script src="https://unpkg.com/prismjs@1.20.0/plugins/autoloader/prism-autoloader.min.js"
+    data-autoloader-path="https://unpkg.com/prismjs@1.20.0/components/"></script>
+
+  
+    <script src="/js/table-of-contents.js"></script>
+  
+
+
+</body>
+
+</html>

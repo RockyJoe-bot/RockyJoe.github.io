@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <title>Redis的事务 | codex</title>
+
+  <meta charset="UTF-8">
+  <meta name="language" content="en">
+  <meta name="description" content="redis">
+  <meta name="keywords" content="数据库 , redis , string">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Redis的事务" />
+  <meta name="twitter:description" content="redis"/>
+  <meta name="twitter:site" content="https://twitter.com/&lt;your handle&gt;" />
+  <meta name="twitter:creator" content="https://twitter.com/&lt;your handle&gt;" />
+  
+
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
+
+  
+  
+    
+ 
+  
+  
+  
+  
+  
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/post.min.2cb93c91050d1853bf971cc31e00122edd6e0f405aa1de3b7f8ef67ea3b5a79a.css" integrity="sha256-LLk8kQUNGFO/lxzDHgASLt1uD0Baod47f472fqO1p5o="/>
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
+  
+  
+   
+   
+    
+
+<script type="application/ld+json">
+  
+    {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/RockyJoee.github.io\/"
+      },
+      "articleSection" : "blog",
+      "name" : "Redis的事务",
+      "headline" : "Redis的事务",
+      "description" : "redis",
+      "inLanguage" : "en-US",
+      "author" : "",
+      "creator" : "",
+      "publisher": "",
+      "accountablePerson" : "",
+      "copyrightHolder" : "",
+      "copyrightYear" : "2020",
+      "datePublished": "2020-08-20 00:59:46 \u002b0800 CST",
+      "dateModified" : "2020-08-20 00:59:46 \u002b0800 CST",
+      "url" : "http:\/\/RockyJoee.github.io\/blog\/redis\/",
+      "wordCount" : "11",
+      "keywords" : ["数据库", "redis", "string", "Blog"]
+    }
+  
+  </script>
+</head>
+
+<body>
+  <div class="burger__container">
+  <div class="burger" aria-controls="navigation" aria-label="Menu">
+    <div class="burger__meat burger__meat--1"></div>
+    <div class="burger__meat burger__meat--2"></div>
+    <div class="burger__meat burger__meat--3"></div>
+  </div>
+</div>
+ 
+
+  <nav class="nav" id="navigation">
+  <ul class="nav__list">
+    
+    
+      <li>
+        <a  href="/">about</a>
+      </li>
+    
+      <li>
+        <a  class="active"
+         href="/blog">blog</a>
+      </li>
+    
+  </ul>
+</nav>
+
+
+  <main>
+    
+    
+
+    <div class="flex-wrapper">
+      <div class="post__container">
+        <div class="post">
+          <header class="post__header">
+            <h1 id="post__title">Redis的事务</h1>
+            <time datetime="2020-08-20 00:59:46 &#43;0800 CST" class="post__date">Aug 20 2020</time> 
+          </header>
+          <article class="post__content">
+              
+<h1 id="redis事务">Redis事务：</h1>
+<p>Redis单条命令是保持原子性的，但是事务不保证原子性,Redis事务没有隔离级别<br>
+Redis事务具有一次性，顺序性，排他性，此外Redis事务中所有命令会被序列化</p>
+<hr>
+<p>开启事务（multi）<br>
+命令入队<br>
+执行事务（exec）<br>
+分为编译时异常和运行时异常<br>
+若是编译时异常事务中所有命令都不会执行<br>
+若是运行时异常，执行命令时 错误命令抛异常，其他命令是可以正常执行的<br>
+取消事务（discard）</p>
+
+
+              
+          </article>
+          
+
+<ul class="tags__list">
+    
+    <li class="tag__item">
+        <a class="tag__link" href="http://RockyJoee.github.io/tags/redis/">redis</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="http://RockyJoee.github.io/tags/string/">string</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="http://RockyJoee.github.io/tags/list/">list</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="http://RockyJoee.github.io/tags/set/">set</a>
+    </li></ul>
+
+ <div class="pagination">
+  
+    <a class="pagination__item" href="http://RockyJoee.github.io/blog/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B1/">
+        <span class="pagination__label">Previous Post</span>
+        <span class="pagination__title">Redis的数据类型（1）</span>
+    </a>
+  
+
+  
+</div>
+
+          
+          <footer class="post__footer">
+            
+
+
+<div class="social-icons">
+  
+     
+    
+      <a class="social-icons__link" title="Twitter"
+         href="https://twitter.com/%3cyour%20handle%3e"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://RockyJoee.github.io/svg/twitter.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" title="GitHub"
+         href="https://github.com/%3cyour%20handle%3e"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://RockyJoee.github.io/svg/github.svg')"></div>
+      </a>
+    
+     
+</div>
+
+            <p>© 2020</p>
+          </footer>
+          </div>
+      </div>
+      
+      <div class="toc-container">
+          
+        <nav id="TableOfContents"></nav>
+      </div>
+      
+    </div>
+    
+
+  </main>
+
+   
+
+  
+  <script src="/js/index.min.49e4d8a384357d9b445b87371863419937ede9fa77737522ffb633073aebfa44.js" integrity="sha256-SeTYo4Q1fZtEW4c3GGNBmTft6fp3c3Ui/7YzBzrr&#43;kQ=" crossorigin="anonymous"></script>
+  
+  
+  <script src="https://unpkg.com/prismjs@1.20.0/components/prism-core.min.js"></script>
+
+  
+  <script src="https://unpkg.com/prismjs@1.20.0/plugins/autoloader/prism-autoloader.min.js"
+    data-autoloader-path="https://unpkg.com/prismjs@1.20.0/components/"></script>
+
+  
+    <script src="/js/table-of-contents.js"></script>
+  
+
+
+</body>
+
+</html>
